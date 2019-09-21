@@ -15,10 +15,10 @@ class EntityCell: UICollectionViewCell {
     @IBOutlet weak var cellTitleLabel: UILabel!
     @IBOutlet weak var cellDateLabel: UILabel!
     
-    @IBOutlet weak var deleteCellButton: UIButton!
-   
+    @IBOutlet weak var cellDeleteButton: UIButton!
+    
     override func layoutSubviews() {
         layer.backgroundColor = UIColor.yellow.cgColor
-        
+        layer.cornerRadius = 3
     }
 }

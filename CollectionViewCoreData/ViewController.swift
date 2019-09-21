@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 
-class ViewController: UICollectionViewController, UINavigationControllerDelegate  {
+class ViewController: UICollectionViewController, StoryboardBoundable  {
     
-     var note: Entity?
+    weak var coordinator: MainCoordinator?
+    
+    var note: Entity?
 
     var managedObjectContext = CoreDataStack().managedObjectContext
     
@@ -64,18 +66,5 @@ extension ViewController {
         layout.itemSize = CGSize(width: width, height: width)
     }
     
-    
-    func hiddenContainerViewTapped(inCell cell: UICollectionViewCell) {
-        guard let indexPath = collectionView.indexPath(for: cell) else { return }
-        dataSource.entities.remove(at: indexPath.item)
-        managedObjectContext.delete(note!)
-        collectionView.performBatchUpdates({
-            self.collectionView.deleteItems(at: [indexPath])
-        })
-    }
-    
-    func visibleContainerViewTapped(inCell cell: UICollectionViewCell) {
-        guard let indexPath = collectionView.indexPath(for: cell) else { return }
-        print("Tapped item at index path: \(indexPath)")
-    }
+  
 }

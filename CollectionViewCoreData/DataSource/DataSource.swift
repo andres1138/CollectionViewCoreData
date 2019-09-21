@@ -32,12 +32,17 @@ class DataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate
     func object(at indexPath: IndexPath) -> Entity {
         return fetchedResultsController.object(at: indexPath)
     }
+   
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let section = fetchedResultsController.sections?[section] else {
             return 0
         }
+        print("Get numberOfItemsInSection", section.numberOfObjects, entities.count)
         
          return section.numberOfObjects
     }
@@ -46,8 +51,9 @@ class DataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate
         
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
+ 
         
-        
+       
         
         return configureCell(cell, at: indexPath)
     }
@@ -58,17 +64,39 @@ class DataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
         
          let entity = fetchedResultsController.object(at: indexPath)
+        let entityDate = entity.date.formatDateToString(entity.date)
         
         cell.cellTitleLabel.text = entity.title
-       // cell.cellDateLabel.text = entity.date
+       cell.cellDateLabel.text = entityDate
         
         
         if let data = entity.imageData as Data? {
             cell.cellImageView?.image = UIImage(data: data)
         }
         
+        cell.cellDeleteButton.tag = indexPath.row
+        cell.cellDeleteButton.addTarget(self, action: #selector(del(sender:)), for: .touchUpInside)
+        
         return cell
     }
     
+    @objc func del(sender: UIButton) {
+
+      let indexPath = IndexPath(item: sender.tag, section: 0)
+        let entity = fetchedResultsController.object(at: indexPath)
+      
+      
+            context.delete(entity)
+                 context.saveContext()
+                 collectionView.reloadData()
+        
+        
+        
+       
+
+  }
+    
     
 }
+    
+
