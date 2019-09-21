@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4180AF502335B36400904BFD /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180AF4F2335B36400904BFD /* UIView+Anchor.swift */; };
 		41FB7FCA23355BA90002C963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FC923355BA90002C963 /* AppDelegate.swift */; };
 		41FB7FCC23355BA90002C963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FCB23355BA90002C963 /* ViewController.swift */; };
 		41FB7FCF23355BA90002C963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FB7FCD23355BA90002C963 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4180AF4F2335B36400904BFD /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		41FB7FC623355BA90002C963 /* CollectionViewCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FB7FC923355BA90002C963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41FB7FCB23355BA90002C963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4180AF4E2335B35900904BFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4180AF4F2335B36400904BFD /* UIView+Anchor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		41FB7FBD23355BA90002C963 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		41FB7FC823355BA90002C963 /* CollectionViewCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4180AF4E2335B35900904BFD /* Extensions */,
 				41FB7FEC23355EA00002C963 /* Views */,
 				41FB7FE923355E670002C963 /* DataSource */,
 				41FB7FE623355DF50002C963 /* FetchedResultsController */,
@@ -196,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4180AF502335B36400904BFD /* UIView+Anchor.swift in Sources */,
 				41FB7FE223355C690002C963 /* Entity+CoreDataProperties.swift in Sources */,
 				41FB7FDE23355C130002C963 /* DataModel.xcdatamodeld in Sources */,
 				41FB7FCC23355BA90002C963 /* ViewController.swift in Sources */,

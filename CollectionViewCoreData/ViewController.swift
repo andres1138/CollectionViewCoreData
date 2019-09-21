@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UICollectionViewController, UINavigationControllerDelegate {
+class ViewController: UICollectionViewController, UINavigationControllerDelegate  {
     
      var note: Entity?
 
@@ -62,5 +62,20 @@ extension ViewController {
         let width = (view.frame.size.width - 20) / 2
         let layout =  collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
+    }
+    
+    
+    func hiddenContainerViewTapped(inCell cell: UICollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        dataSource.entities.remove(at: indexPath.item)
+        managedObjectContext.delete(note!)
+        collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: [indexPath])
+        })
+    }
+    
+    func visibleContainerViewTapped(inCell cell: UICollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        print("Tapped item at index path: \(indexPath)")
     }
 }

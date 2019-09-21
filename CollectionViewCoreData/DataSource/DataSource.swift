@@ -44,6 +44,7 @@ class DataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
         
         
@@ -56,11 +57,15 @@ class DataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
         
+         let entity = fetchedResultsController.object(at: indexPath)
+        
+        cell.cellTitleLabel.text = entity.title
+       // cell.cellDateLabel.text = entity.date
         
         
-//        if let data = noteEntity.imageData as Data? {
-//            cell.cellImageView?.image = UIImage(data: data)
-//        }
+        if let data = entity.imageData as Data? {
+            cell.cellImageView?.image = UIImage(data: data)
+        }
         
         return cell
     }
