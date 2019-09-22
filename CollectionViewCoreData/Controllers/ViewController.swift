@@ -43,8 +43,12 @@ extension ViewController {
     }
     
     func setupViewController() {
+         collectionView.delegate = self
         collectionView.dataSource = dataSource
-       collectionView.delegate = self
+     dataSource.setSearchController()
+      navigationItem.searchController = dataSource.searchController
+        navigationItem.searchController?.hidesNavigationBarDuringPresentation = true 
+      definesPresentationContext = true
     }
     
     func collectionViewLayouts() {
