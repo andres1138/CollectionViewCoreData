@@ -18,7 +18,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
     private let collectionView: UICollectionView
     private let context: NSManagedObjectContext
     
-   
+    
     lazy var fetchedResultsController: Fetched = {
         return Fetched(managedObjectContext: self.context, collectionView: self.collectionView)
     }()
@@ -60,13 +60,23 @@ class DataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
-        return configureCell(cell, at: indexPath)
+        
+        
+        if self.indexPathIsWithinBounds(indexPath) {
+            return configureCell(cell, at: indexPath)
+        } else {
+            print("No dice bro")
+        }
+        
+        return cell
     }
     
     
     
     func configureCell(_ cell: UICollectionViewCell, at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
+        cell.cellDeleteButton.tag = indexPath.item
+        cell.cellDeleteButton.addTarget(self, action: #selector(del(sender:)), for: .touchUpInside)
         
         if isSearching() {
             let entity = entities[indexPath.row]
@@ -79,7 +89,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
             }
             
             cell.cellDeleteButton.isEnabled = false
-            cell.isHidden = true
+            cell.cellDeleteButton.isHidden = true
         } else  {
             
             let entity = fetchedResultsController.object(at: indexPath)
@@ -91,8 +101,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
                 cell.cellImageView?.image = UIImage(data: data)
             }
             
-            cell.cellDeleteButton.tag = indexPath.item
-            cell.cellDeleteButton.addTarget(self, action: #selector(del(sender:)), for: .touchUpInside)
+          
             
         }
         
@@ -105,32 +114,21 @@ class DataSource: NSObject, UICollectionViewDataSource {
     @objc func del(sender: UIButton) {
         let indexPath = IndexPath(item: sender.tag, section: 0)
         let entity = fetchedResultsController.object(at: indexPath)
-
         
-        if (indexPathIsWithinBounds(indexPath)) {
-            self.collectionView.performBatchUpdates({
-                     UIView.setAnimationsEnabled(false)
-                       //self.collectionView.deleteItems(at: [indexPath])
-                       context.delete(entity)
-                       context.saveContext()
-                      self.collectionView.reloadData()
-                   }, completion: { [unowned self] (_) in
-                     UIView.setAnimationsEnabled(true)
-                       self.collectionView.reloadData()
-                   })
-        } else {
-            print("failed deleting because IndexPath is out of bounds")
-        }
         
-      
-     
+        
+      context.delete(entity)
+                    context.saveContext()
+                   
+        
+        
     }
     
     // checks to see if indexPath is not out of range and covers a crash
     func indexPathIsWithinBounds(_ indexPath: IndexPath) -> Bool {
         if let sections = self.fetchedResultsController.sections,
-        indexPath.section <= sections.count {
-            if indexPath.item <= sections[indexPath.section].numberOfObjects {
+            indexPath.section < sections.count {
+            if indexPath.item < sections[indexPath.section].numberOfObjects {
                 return true
             }
         }

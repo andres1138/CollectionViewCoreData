@@ -13,7 +13,7 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     
     weak var coordinator: MainCoordinator?
     
-    var note: Entity?
+   
     
     var managedObjectContext = CoreDataStack().managedObjectContext
     
