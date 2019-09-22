@@ -25,6 +25,7 @@
 		41FB7FE823355E080002C963 /* FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FE723355E080002C963 /* FetchedResultsController.swift */; };
 		41FB7FEB23355E720002C963 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FEA23355E720002C963 /* DataSource.swift */; };
 		41FB7FEE23355EAA0002C963 /* EntityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FED23355EAA0002C963 /* EntityCell.swift */; };
+		41FE06B323371D2600E6A863 /* EntityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE06B223371D2600E6A863 /* EntityDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		41FB7FE723355E080002C963 /* FetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsController.swift; sourceTree = "<group>"; };
 		41FB7FEA23355E720002C963 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		41FB7FED23355EAA0002C963 /* EntityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCell.swift; sourceTree = "<group>"; };
+		41FE06B223371D2600E6A863 /* EntityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		41FB7FC823355BA90002C963 /* CollectionViewCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				41FE06B123371CF000E6A863 /* Controllers */,
 				413471DA2336A6060041E7C8 /* CoordinatorPatternFiles */,
 				4180AF4E2335B35900904BFD /* Extensions */,
 				41FB7FEC23355EA00002C963 /* Views */,
@@ -108,7 +111,6 @@
 				41FB7FE323355CD30002C963 /* CoreDataStack */,
 				41FB7FDB23355C000002C963 /* CoreData */,
 				41FB7FC923355BA90002C963 /* AppDelegate.swift */,
-				41FB7FCB23355BA90002C963 /* ViewController.swift */,
 				41FB7FCD23355BA90002C963 /* Main.storyboard */,
 				41FB7FD023355BAA0002C963 /* Assets.xcassets */,
 				41FB7FD223355BAA0002C963 /* LaunchScreen.storyboard */,
@@ -157,6 +159,15 @@
 				41FB7FED23355EAA0002C963 /* EntityCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		41FE06B123371CF000E6A863 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41FB7FCB23355BA90002C963 /* ViewController.swift */,
+				41FE06B223371D2600E6A863 /* EntityDetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 				413471D92336A45A0041E7C8 /* UIviewController+AlertExtension.swift in Sources */,
 				413471DC2336A6190041E7C8 /* Coordinator.swift in Sources */,
 				413471DE2336A6650041E7C8 /* StoryboardBoundable.swift in Sources */,
+				41FE06B323371D2600E6A863 /* EntityDetailViewController.swift in Sources */,
 				41FB7FE223355C690002C963 /* Entity+CoreDataProperties.swift in Sources */,
 				41FB7FDE23355C130002C963 /* DataModel.xcdatamodeld in Sources */,
 				41FB7FCC23355BA90002C963 /* ViewController.swift in Sources */,

@@ -16,7 +16,6 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyy"
         let stringDate = formatter.string(from: date)
-    
         return stringDate
     }
 }
