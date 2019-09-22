@@ -20,7 +20,7 @@ class Fetched: NSFetchedResultsController<Entity>, NSFetchedResultsControllerDel
     init(managedObjectContext: NSManagedObjectContext, collectionView: UICollectionView) {
         
         self.collectionView = collectionView
-       
+        
         super.init(fetchRequest: Entity.fetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         self.delegate = self

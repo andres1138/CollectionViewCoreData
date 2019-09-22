@@ -14,7 +14,7 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     weak var coordinator: MainCoordinator?
     
     var note: Entity?
-
+    
     var managedObjectContext = CoreDataStack().managedObjectContext
     
     lazy var dataSource: DataSource = {
@@ -23,7 +23,7 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         setupViewController()
         collectionViewLayouts()
         navigationBarButtonsSetup()
@@ -32,30 +32,30 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         coordinator?.toEntityDetailVC()
     }
-       
+    
 }
 
 extension ViewController {
     
     func navigationBarButtonsSetup() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New Entity", style: .plain, target: self, action: #selector(addNewNote))
-
+        
     }
     
     func setupViewController() {
-         collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.dataSource = dataSource
-     dataSource.setSearchController()
-      navigationItem.searchController = dataSource.searchController
+        dataSource.setSearchController()
+        navigationItem.searchController = dataSource.searchController
         navigationItem.searchController?.hidesNavigationBarDuringPresentation = true 
-      definesPresentationContext = true
+        definesPresentationContext = true
     }
     
     func collectionViewLayouts() {
-          let width = (view.frame.size.width - 20) / 2
-          let layout =  collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-          layout.itemSize = CGSize(width: width, height: width)
-      }
+        let width = (view.frame.size.width - 20) / 2
+        let layout =  collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
+    }
     
     
     @objc func addNewNote() {
@@ -83,9 +83,9 @@ extension ViewController {
     }
     
     
-
     
-  
+    
+    
 }
 
 
