@@ -17,8 +17,12 @@ class EntityCell: UICollectionViewCell {
     
     @IBOutlet weak var cellDeleteButton: UIButton!
     
+   
+    
     override func layoutSubviews() {
         layer.backgroundColor = randomBackgroundColor().cgColor
         layer.cornerRadius = 3
     }
+   
+       
 }

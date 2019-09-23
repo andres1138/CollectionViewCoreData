@@ -34,7 +34,7 @@ class Fetched: NSFetchedResultsController<Entity>, NSFetchedResultsControllerDel
     
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
+        self.collectionView.numberOfItems(inSection: 0)
         blockOperations.removeAll(keepingCapacity: false)
     }
     
@@ -47,16 +47,16 @@ class Fetched: NSFetchedResultsController<Entity>, NSFetchedResultsControllerDel
             
         case .insert:
             guard let newIndexPath = newIndexPath else { return }
-            op = BlockOperation { self.collectionView.insertItems(at: [newIndexPath]) }
+            op = BlockOperation { self.collectionView.numberOfItems(inSection: 0); self.collectionView.insertItems(at: [newIndexPath]) }
             
         case .delete:
-            guard let indexPath = indexPath else { return }
+            guard let indexPath = newIndexPath else { return }
             op = BlockOperation { self.collectionView.deleteItems(at: [indexPath]) }
         case .move:
             guard let indexPath = indexPath,  let newIndexPath = newIndexPath else { return }
             op = BlockOperation { self.collectionView.moveItem(at: indexPath, to: newIndexPath) }
         case .update:
-            guard let indexPath = indexPath else { return }
+            guard let indexPath = newIndexPath else { return }
             op = BlockOperation { self.collectionView.reloadItems(at: [indexPath]) }
         @unknown default:
             fatalError()
@@ -75,6 +75,14 @@ class Fetched: NSFetchedResultsController<Entity>, NSFetchedResultsControllerDel
             self.blockOperations.removeAll(keepingCapacity: false)
         })
         
+    }
+    
+    deinit {
+        for operation in blockOperations {
+            operation.cancel()
+        }
+        
+        self.blockOperations.removeAll(keepingCapacity: false)
     }
     
 }

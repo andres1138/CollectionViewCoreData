@@ -13,6 +13,8 @@
 		413471DE2336A6650041E7C8 /* StoryboardBoundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413471DD2336A6650041E7C8 /* StoryboardBoundable.swift */; };
 		413471E02336A7A60041E7C8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413471DF2336A7A60041E7C8 /* MainCoordinator.swift */; };
 		4180AF502335B36400904BFD /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180AF4F2335B36400904BFD /* UIView+Anchor.swift */; };
+		41F2E9FA233945230002E9A6 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2E9F8233945220002E9A6 /* Brush.swift */; };
+		41F2E9FB233945230002E9A6 /* SwiftyDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2E9F9233945230002E9A6 /* SwiftyDraw.swift */; };
 		41FB7FCA23355BA90002C963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FC923355BA90002C963 /* AppDelegate.swift */; };
 		41FB7FCC23355BA90002C963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FCB23355BA90002C963 /* ViewController.swift */; };
 		41FB7FCF23355BA90002C963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FB7FCD23355BA90002C963 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		413471DD2336A6650041E7C8 /* StoryboardBoundable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBoundable.swift; sourceTree = "<group>"; };
 		413471DF2336A7A60041E7C8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4180AF4F2335B36400904BFD /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
+		41F2E9F8233945220002E9A6 /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
+		41F2E9F9233945230002E9A6 /* SwiftyDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyDraw.swift; sourceTree = "<group>"; };
 		41FB7FC623355BA90002C963 /* CollectionViewCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FB7FC923355BA90002C963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41FB7FCB23355BA90002C963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		41F2E9FC233945260002E9A6 /* SwiftyDraw */ = {
+			isa = PBXGroup;
+			children = (
+				41F2E9F8233945220002E9A6 /* Brush.swift */,
+				41F2E9F9233945230002E9A6 /* SwiftyDraw.swift */,
+			);
+			path = SwiftyDraw;
+			sourceTree = "<group>";
+		};
 		41FB7FBD23355BA90002C963 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +115,7 @@
 		41FB7FC823355BA90002C963 /* CollectionViewCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				41F2E9FC233945260002E9A6 /* SwiftyDraw */,
 				41FE06B123371CF000E6A863 /* Controllers */,
 				413471DA2336A6060041E7C8 /* CoordinatorPatternFiles */,
 				4180AF4E2335B35900904BFD /* Extensions */,
@@ -244,6 +258,7 @@
 				4180AF502335B36400904BFD /* UIView+Anchor.swift in Sources */,
 				413471D92336A45A0041E7C8 /* UIviewController+AlertExtension.swift in Sources */,
 				413471DC2336A6190041E7C8 /* Coordinator.swift in Sources */,
+				41F2E9FB233945230002E9A6 /* SwiftyDraw.swift in Sources */,
 				413471DE2336A6650041E7C8 /* StoryboardBoundable.swift in Sources */,
 				41FE06B323371D2600E6A863 /* EntityDetailViewController.swift in Sources */,
 				41FB7FE223355C690002C963 /* Entity+CoreDataProperties.swift in Sources */,
@@ -255,6 +270,7 @@
 				41FB7FE823355E080002C963 /* FetchedResultsController.swift in Sources */,
 				41FB7FEB23355E720002C963 /* DataSource.swift in Sources */,
 				41FB7FEE23355EAA0002C963 /* EntityCell.swift in Sources */,
+				41F2E9FA233945230002E9A6 /* Brush.swift in Sources */,
 				413471E02336A7A60041E7C8 /* MainCoordinator.swift in Sources */,
 				41FB7FCA23355BA90002C963 /* AppDelegate.swift in Sources */,
 			);

@@ -29,6 +29,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.delegate = self
         let vc = EntityDetailViewController.instantiate()
         vc.coordinator = self
+     
         navigationController.pushViewController(vc, animated: true)
     }
   

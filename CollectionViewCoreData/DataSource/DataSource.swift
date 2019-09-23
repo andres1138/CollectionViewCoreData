@@ -37,9 +37,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
         return fetchedResultsController.object(at: indexPath)
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+  
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -62,23 +60,18 @@ class DataSource: NSObject, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
         
         
-        if self.indexPathIsWithinBounds(indexPath) {
-            return configureCell(cell, at: indexPath)
-        } else {
-            print("No dice bro")
-        }
-        
-        return cell
+        return configureCell(cell, at: indexPath)
     }
     
     
     
     func configureCell(_ cell: UICollectionViewCell, at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
+     
         cell.cellDeleteButton.tag = indexPath.item
-        cell.cellDeleteButton.addTarget(self, action: #selector(del(sender:)), for: .touchUpInside)
+        cell.cellDeleteButton.addTarget(self, action: #selector(deleteCell(sender:)), for: .touchUpInside)
         
-        if isSearching() {
+        if isSearching()  {
             let entity = entities[indexPath.row]
             let entityDate = entity.date.formatDateToString(entity.date)
             cell.cellTitleLabel.text = entity.title
@@ -111,18 +104,27 @@ class DataSource: NSObject, UICollectionViewDataSource {
     }
     
     // delete action for delete button on collection view cell
-    @objc func del(sender: UIButton) {
-        let indexPath = IndexPath(item: sender.tag, section: 0)
-        let entity = fetchedResultsController.object(at: indexPath)
+    @objc func deleteCell(sender: UIButton) {
+       let indexPath = IndexPath(item: sender.tag, section: 0)
+      
         
+        if (self.indexPathIsWithinBounds(indexPath)) {
+             let entity = fetchedResultsController.object(at: indexPath)
+            
+            context.delete(entity)
+            context.saveContext()
+           
+            collectionView.reloadData()
+         
+        } else {
+            print("failed saving due to index path not being within bounds")
+        }
         
-        
-      context.delete(entity)
-                    context.saveContext()
-                   
-        
-        
+       
+     
     }
+    
+ 
     
     // checks to see if indexPath is not out of range and covers a crash
     func indexPathIsWithinBounds(_ indexPath: IndexPath) -> Bool {
@@ -146,6 +148,10 @@ extension DataSource: UISearchResultsUpdating {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search by Title"
         searchController.searchBar.tintColor = .yellow
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.gray]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = attributes
+       
     }
     
     func isSearchBarEmpty() -> Bool {

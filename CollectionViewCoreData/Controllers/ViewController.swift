@@ -12,8 +12,8 @@ import CoreData
 class ViewController: UICollectionViewController, StoryboardBoundable  {
     
     weak var coordinator: MainCoordinator?
-    
-   
+    weak var delegate: EntityDelegate?
+  
     
     var managedObjectContext = CoreDataStack().managedObjectContext
     
@@ -47,7 +47,7 @@ extension ViewController {
         collectionView.dataSource = dataSource
         dataSource.setSearchController()
         navigationItem.searchController = dataSource.searchController
-        navigationItem.searchController?.hidesNavigationBarDuringPresentation = true 
+      
         definesPresentationContext = true
     }
     
