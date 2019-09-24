@@ -17,6 +17,8 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     
     var managedObjectContext = CoreDataStack().managedObjectContext
     
+    
+    
     lazy var dataSource: DataSource = {
         return DataSource(collectionView: self.collectionView, context: self.managedObjectContext)
     }()
@@ -27,6 +29,7 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
         setupViewController()
         collectionViewLayouts()
         navigationBarButtonsSetup()
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -84,10 +87,9 @@ extension ViewController {
         present(alert, animated: true)
     }
     
-    
+  
     
     
     
 }
-
 

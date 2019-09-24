@@ -101,23 +101,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfj-wH-rNP">
-                                <rect key="frame" x="67" y="129" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIe-Y5-ryT">
                                 <rect key="frame" x="20" y="54" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qzf-bp-aKU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFz-fb-biH" customClass="SwiftyDrawView" customModule="CollectionViewCoreData" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="73.5" width="375" height="549.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qzf-bp-aKU" secondAttribute="trailing" id="6Fy-4c-CEs"/>
                             <constraint firstItem="zIe-Y5-ryT" firstAttribute="leading" secondItem="hZF-X2-VO3" secondAttribute="leading" constant="20" id="ElL-rI-iEm"/>
+                            <constraint firstItem="gFz-fb-biH" firstAttribute="top" secondItem="zIe-Y5-ryT" secondAttribute="bottom" constant="5" id="Kbf-iD-Tgx"/>
+                            <constraint firstItem="hZF-X2-VO3" firstAttribute="trailing" secondItem="gFz-fb-biH" secondAttribute="trailing" id="Mko-UA-NwD"/>
+                            <constraint firstItem="Qzf-bp-aKU" firstAttribute="leading" secondItem="Dtt-gY-Yys" secondAttribute="leading" id="QbG-eK-4yd"/>
+                            <constraint firstItem="Qzf-bp-aKU" firstAttribute="top" secondItem="Dtt-gY-Yys" secondAttribute="top" id="THA-Nf-QbD"/>
                             <constraint firstItem="aeG-t4-uWq" firstAttribute="leading" secondItem="hZF-X2-VO3" secondAttribute="leading" constant="20" id="WWe-qV-Zr7"/>
+                            <constraint firstItem="hZF-X2-VO3" firstAttribute="bottom" secondItem="gFz-fb-biH" secondAttribute="bottom" id="Xzh-DH-6la"/>
                             <constraint firstItem="hZF-X2-VO3" firstAttribute="trailing" secondItem="aeG-t4-uWq" secondAttribute="trailing" constant="20" id="cVt-mv-UfQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Qzf-bp-aKU" secondAttribute="bottom" id="fY6-a7-5Wf"/>
                             <constraint firstItem="aeG-t4-uWq" firstAttribute="top" secondItem="hZF-X2-VO3" secondAttribute="top" constant="20" id="idW-mB-5ep"/>
+                            <constraint firstItem="gFz-fb-biH" firstAttribute="leading" secondItem="hZF-X2-VO3" secondAttribute="leading" id="kB4-D7-Jeo"/>
                             <constraint firstItem="zIe-Y5-ryT" firstAttribute="top" secondItem="aeG-t4-uWq" secondAttribute="bottom" constant="10" id="sCX-I3-St7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hZF-X2-VO3"/>
@@ -125,7 +136,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="dateLabel" destination="zIe-Y5-ryT" id="Doj-1v-1Nv"/>
-                        <outlet property="imageView" destination="lfj-wH-rNP" id="2Xf-f6-r4d"/>
+                        <outlet property="drawnImageView" destination="Qzf-bp-aKU" id="3wk-YT-UEC"/>
+                        <outlet property="mainDrawingView" destination="gFz-fb-biH" id="b08-zb-Iwr"/>
                         <outlet property="titleTextField" destination="aeG-t4-uWq" id="avY-X9-ti2"/>
                     </connections>
                 </viewController>
