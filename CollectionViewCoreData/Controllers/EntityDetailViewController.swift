@@ -37,7 +37,7 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
     }
     
     override func viewDidLoad() {
-        
+        setupEntityVC()
     }
     
     
@@ -46,7 +46,8 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
            setupEntityPage(entity: entity)
         }
         
-        
+        titleTextField.delegate = self
+    
     }
     
      func selectedEntity(_ newEntity: Entity) {
