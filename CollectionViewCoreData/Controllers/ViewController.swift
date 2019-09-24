@@ -30,7 +30,8 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        coordinator?.toEntityDetailVC()
+        let entity = dataSource.fetchedResultsController.object(at: indexPath)
+        coordinator?.toEntityPageWithInfo(entity: entity)
     }
     
 }
@@ -69,7 +70,8 @@ extension ViewController {
         let action = UIAlertAction(title: "Create New Note", style: .default) { [unowned alert] _ in
             let text = alert.textFields![0]
             let context = self.managedObjectContext
-            let newEntity = Entity(context: context)
+           // let newEntity = Entity(context: context)
+            let newEntity = NSEntityDescription.insertNewObject(forEntityName: "Entity", into: context) as! Entity
             
             newEntity.title = text.text ?? "Untitled Note"
             newEntity.date = Date()

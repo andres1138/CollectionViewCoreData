@@ -96,13 +96,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JI6-dq-phQ">
-                                <rect key="frame" x="25" y="20" width="48" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIe-Y5-ryT">
                                 <rect key="frame" x="25" y="49" width="38" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -110,14 +103,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-t4-uWq">
+                                <rect key="frame" x="20" y="20" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfj-wH-rNP">
+                                <rect key="frame" x="67" y="129" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aeG-t4-uWq" firstAttribute="leading" secondItem="hZF-X2-VO3" secondAttribute="leading" constant="20" id="WWe-qV-Zr7"/>
+                            <constraint firstItem="hZF-X2-VO3" firstAttribute="trailing" secondItem="aeG-t4-uWq" secondAttribute="trailing" constant="20" id="cVt-mv-UfQ"/>
+                            <constraint firstItem="aeG-t4-uWq" firstAttribute="top" secondItem="hZF-X2-VO3" secondAttribute="top" constant="20" id="idW-mB-5ep"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hZF-X2-VO3"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="dateLabel" destination="zIe-Y5-ryT" id="Doj-1v-1Nv"/>
-                        <outlet property="titleLabel" destination="JI6-dq-phQ" id="hh6-1d-LjM"/>
+                        <outlet property="imageView" destination="lfj-wH-rNP" id="2Xf-f6-r4d"/>
+                        <outlet property="titleTextField" destination="aeG-t4-uWq" id="avY-X9-ti2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZU-Kn-jtU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -23,6 +23,13 @@ class EntityCell: UICollectionViewCell {
         layer.backgroundColor = randomBackgroundColor().cgColor
         layer.cornerRadius = 3
     }
-   
+
+    
+    
        
 }
+
+
+
+
+

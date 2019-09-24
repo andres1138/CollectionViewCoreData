@@ -21,7 +21,8 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
     
   
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
    
     weak var coordinator: MainCoordinator?
@@ -31,7 +32,7 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
     
     var entity: Entity? {
         didSet {
-            setupEntityVC()
+            updateUserInterface()
         }
     }
     
@@ -42,11 +43,50 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
     
     func setupEntityVC() {
         if let entity = entity {
-            selectedEntity(entity)
+           setupEntityPage(entity: entity)
         }
+        
+        
     }
     
      func selectedEntity(_ newEntity: Entity) {
            entity = newEntity
        }
+}
+
+
+
+extension EntityDetailViewController: UITextFieldDelegate  {
+    
+    func setupEntityPage(entity: Entity?) {
+        titleTextField.text = entity?.title
+        
+        if let date = entity?.date {
+            dateLabel.text = date.formatDateToString(date)
+        }
+        
+        
+        if let imageData = entity?.imageData, let image = UIImage(data: imageData) {
+            imageView.image = image
+        }
+    }
+    
+    
+    func assignManagedAttributes(entity: Entity, title: String, image: UIImage?,  date: Date? = nil) {
+        entity.title = title
+      
+        
+        if date != nil {
+            entity.date = date!
+        }
+        
+        if image != nil , let data = image!.pngData() {
+            entity.imageData = data
+        }
+    }
+    
+    func updateUserInterface() {
+        loadViewIfNeeded()
+        setupEntityPage(entity: entity)
+    }
 }

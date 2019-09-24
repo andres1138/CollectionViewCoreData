@@ -104,7 +104,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
     }
     
     // delete action for delete button on collection view cell
-    @objc func deleteCell(sender: UIButton) {
+    @objc func deleteCell(sender: AnyObject) {
        let indexPath = IndexPath(item: sender.tag, section: 0)
       
         
@@ -114,7 +114,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
             context.delete(entity)
             context.saveContext()
            
-            collectionView.reloadData()
+            collectionView.layoutIfNeeded()
          
         } else {
             print("failed saving due to index path not being within bounds")
@@ -136,6 +136,8 @@ class DataSource: NSObject, UICollectionViewDataSource {
         }
         return false
     }
+    
+   
     
 }
 
