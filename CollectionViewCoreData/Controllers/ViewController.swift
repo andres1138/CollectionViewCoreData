@@ -14,10 +14,7 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
     weak var coordinator: MainCoordinator?
     weak var delegate: EntityDelegate?
   
-    
     var managedObjectContext = CoreDataStack().managedObjectContext
-    
-    
     
     lazy var dataSource: DataSource = {
         return DataSource(collectionView: self.collectionView, context: self.managedObjectContext)
@@ -73,7 +70,7 @@ extension ViewController {
         let action = UIAlertAction(title: "Create New Note", style: .default) { [unowned alert] _ in
             let text = alert.textFields![0]
             let context = self.managedObjectContext
-           // let newEntity = Entity(context: context)
+        
             let newEntity = NSEntityDescription.insertNewObject(forEntityName: "Entity", into: context) as! Entity
             
             newEntity.title = text.text ?? "Untitled Note"

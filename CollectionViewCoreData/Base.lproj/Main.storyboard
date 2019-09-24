@@ -31,7 +31,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lp4-PD-tKe">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="46" width="200" height="154"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ww-vM-1zf">
                                             <rect key="frame" x="10" y="9" width="180" height="17"/>
@@ -45,7 +45,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="e6p-is-2aX"/>
                                                 <constraint firstAttribute="width" constant="40" id="org-HI-Dh1"/>
                                             </constraints>
-                                            <state key="normal" title="🕷"/>
+                                            <state key="normal" title="🗑"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka9-NR-QAp">
                                             <rect key="frame" x="10" y="31" width="26.5" height="12"/>
@@ -56,17 +56,17 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="lp4-PD-tKe" firstAttribute="height" secondItem="iR0-G9-jOu" secondAttribute="height" id="41C-di-5It"/>
-                                    <constraint firstItem="lp4-PD-tKe" firstAttribute="width" secondItem="iR0-G9-jOu" secondAttribute="width" id="8aZ-LM-r60"/>
                                     <constraint firstItem="8Ww-vM-1zf" firstAttribute="top" secondItem="iR0-G9-jOu" secondAttribute="topMargin" constant="1" id="LMO-nO-REd"/>
+                                    <constraint firstItem="lp4-PD-tKe" firstAttribute="top" secondItem="ka9-NR-QAp" secondAttribute="bottom" constant="3" id="MO1-WJ-Dzx"/>
                                     <constraint firstItem="ka9-NR-QAp" firstAttribute="leading" secondItem="iR0-G9-jOu" secondAttribute="leadingMargin" constant="2" id="Mj5-pr-o8e"/>
-                                    <constraint firstItem="lp4-PD-tKe" firstAttribute="centerX" secondItem="iR0-G9-jOu" secondAttribute="centerX" id="XWx-f7-Lgd"/>
+                                    <constraint firstAttribute="trailing" secondItem="lp4-PD-tKe" secondAttribute="trailing" id="ZKU-my-AwA"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="8Ww-vM-1zf" secondAttribute="trailing" constant="2" id="aT2-HG-oC8"/>
-                                    <constraint firstItem="lp4-PD-tKe" firstAttribute="centerY" secondItem="iR0-G9-jOu" secondAttribute="centerY" id="boF-uH-Pcm"/>
                                     <constraint firstItem="8Ww-vM-1zf" firstAttribute="leading" secondItem="iR0-G9-jOu" secondAttribute="leadingMargin" constant="2" id="dYd-nm-U2E"/>
+                                    <constraint firstAttribute="bottom" secondItem="lp4-PD-tKe" secondAttribute="bottom" id="fMp-yS-1ll"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="bTF-z9-0kC" secondAttribute="trailing" constant="10" id="g5F-cu-o4Z"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="bTF-z9-0kC" secondAttribute="bottom" constant="5" id="skK-dq-rPo"/>
                                     <constraint firstItem="ka9-NR-QAp" firstAttribute="top" secondItem="8Ww-vM-1zf" secondAttribute="bottom" constant="5" id="toG-Vj-Lpr"/>
+                                    <constraint firstItem="lp4-PD-tKe" firstAttribute="leading" secondItem="iR0-G9-jOu" secondAttribute="leading" id="zNJ-1f-HlS"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cellDateLabel" destination="ka9-NR-QAp" id="dOK-9C-4NV"/>
@@ -86,7 +86,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqz-vi-Pr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="107"/>
+            <point key="canvasLocation" x="936.79999999999995" y="106.59670164917542"/>
         </scene>
         <!--Entity Detail View Controller-->
         <scene sceneID="cYl-0s-XRw">

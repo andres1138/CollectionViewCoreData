@@ -12,8 +12,8 @@ import CoreData
 
 
 class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
+   
     var navigationController: UINavigationController
-    
     var entity: Entity?
     
     
@@ -28,32 +28,32 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: false)
     }
     
-   
     
-       func toEntityPageWithInfo(entity: Entity) {
-           navigationController.delegate = self
+    
+    func toEntityPageWithInfo(entity: Entity) {
+        navigationController.delegate = self
         let vc = EntityDetailViewController.instantiate()
-vc.coordinator = self
+        vc.coordinator = self
         vc.entity = entity
-           navigationController.pushViewController(vc, animated: true)
-       }
+        navigationController.pushViewController(vc, animated: true)
+    }
     
-  
-   func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-       
-       guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
-           return
-           
-       }
-       
-       if navigationController.viewControllers.contains(fromViewController) {
-           return
-       }
-       
-     
-   }
     
-  
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+            return
+            
+        }
+        
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
+        
+        
+    }
+    
+    
     
     
 }

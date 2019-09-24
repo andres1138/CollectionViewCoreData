@@ -160,7 +160,7 @@ extension DataSource: UISearchResultsUpdating {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    func filtereringContentWithSearchbar(_ searchingText: String, scope: String = "All") {
+    func filtereringContentWithSearchbar(_ searchingText: String) {
         guard let objects = fetchedResultsController.fetchedObjects else {
             return
         }

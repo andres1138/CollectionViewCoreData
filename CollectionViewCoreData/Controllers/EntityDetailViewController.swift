@@ -18,10 +18,6 @@ protocol EntityDelegate: class {
 
 class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityDelegate {
    
-    
-  
-    
-   
     @IBOutlet weak var mainDrawingView: SwiftyDrawView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
@@ -71,6 +67,8 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
         } else {
             saveNewEntry()
         }
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -92,7 +90,7 @@ extension EntityDetailViewController: UITextFieldDelegate  {
     }
     
     
-    func assignManagedAttributes(entity: Entity, title: String, image: UIImage?,  date: Date? = nil) {
+    func bindManagedAttributesToUIElements(entity: Entity, title: String, image: UIImage?,  date: Date? = nil) {
         entity.title = title
       
         
@@ -134,7 +132,7 @@ extension EntityDetailViewController: UITextFieldDelegate  {
            
            if (managedObjectContext != nil)  {
                let entity = NSEntityDescription.insertNewObject(forEntityName: "Entity", into: managedObjectContext!) as! Entity
-              assignManagedAttributes(entity: entity, title: title,  image: drawnImageView.image, date: Date())
+              bindManagedAttributesToUIElements(entity: entity, title: title,  image: drawnImageView.image, date: Date())
                managedObjectContext?.saveContext()
            } else {
                print("Managed Object Context is nil")
@@ -143,7 +141,7 @@ extension EntityDetailViewController: UITextFieldDelegate  {
        
        func saveEditedEntry() {
            if let entity = entity {
-               assignManagedAttributes(entity: entity, title: titleTextField.text!, image: drawnImageView.image)
+               bindManagedAttributesToUIElements(entity: entity, title: titleTextField.text!, image: drawnImageView.image)
            }
        }
 
