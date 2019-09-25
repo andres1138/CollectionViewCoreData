@@ -16,6 +16,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var navigationController: UINavigationController
     var entity: Entity?
     
+  
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -35,8 +36,11 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         let vc = EntityDetailViewController.instantiate()
         vc.coordinator = self
         vc.entity = entity
-        navigationController.pushViewController(vc, animated: true)
+       
+       navigationController.pushViewController(vc, animated: true)
     }
+    
+    
     
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {

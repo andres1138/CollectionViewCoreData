@@ -22,6 +22,7 @@ class EntityCell: UICollectionViewCell {
     override func layoutSubviews() {
         layer.backgroundColor = UIColor.yellow.cgColor
         layer.cornerRadius = 3
+        layer.backgroundColor = randomBackgroundColor().cgColor
        
     }
 

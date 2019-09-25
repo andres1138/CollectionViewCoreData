@@ -27,12 +27,31 @@ class ViewController: UICollectionViewController, StoryboardBoundable  {
         collectionViewLayouts()
         navigationBarButtonsSetup()
         
+
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let entity = dataSource.fetchedResultsController.object(at: indexPath)
-        coordinator?.toEntityPageWithInfo(entity: entity)
+     
+        
+        if dataSource.isSearching() {
+            let entity = dataSource.entities[indexPath.row]
+             coordinator?.toEntityPageWithInfo(entity: entity)
+        } else {
+            let entity = dataSource.object(at: indexPath)
+                   coordinator?.toEntityPageWithInfo(entity: entity)
+        }
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        if let indexPath = collectionView.indexPathOfSuperCollectionViewCell {
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
+    }
+    
+
     
 }
 
@@ -72,6 +91,7 @@ extension ViewController {
             let context = self.managedObjectContext
         
             let newEntity = NSEntityDescription.insertNewObject(forEntityName: "Entity", into: context) as! Entity
+         
             
             newEntity.title = text.text ?? "Untitled Note"
             newEntity.date = Date()
@@ -83,10 +103,6 @@ extension ViewController {
         
         present(alert, animated: true)
     }
-    
-  
-    
-    
     
 }
 

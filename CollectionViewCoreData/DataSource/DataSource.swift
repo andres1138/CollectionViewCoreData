@@ -57,7 +57,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EntityCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
         
         return configureCell(cell, at: indexPath)
@@ -81,8 +81,7 @@ class DataSource: NSObject, UICollectionViewDataSource {
                 cell.cellImageView?.image = UIImage(data: data)
             }
             
-            cell.cellDeleteButton.isEnabled = false
-            cell.cellDeleteButton.isHidden = true
+         
         } else  {
             
             let entity = fetchedResultsController.object(at: indexPath)
@@ -142,14 +141,19 @@ class DataSource: NSObject, UICollectionViewDataSource {
 }
 
 
-extension DataSource: UISearchResultsUpdating {
+extension DataSource: UISearchResultsUpdating, UISearchBarDelegate {
     
     
     func setSearchController() {
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = "Search by Title"
+        searchController.searchBar.sizeToFit()
         searchController.searchBar.tintColor = .yellow
+        
+        searchController.searchBar.becomeFirstResponder()
         
         let attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.gray]
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = attributes

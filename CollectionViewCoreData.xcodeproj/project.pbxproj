@@ -12,6 +12,7 @@
 		413471DC2336A6190041E7C8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413471DB2336A6190041E7C8 /* Coordinator.swift */; };
 		413471DE2336A6650041E7C8 /* StoryboardBoundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413471DD2336A6650041E7C8 /* StoryboardBoundable.swift */; };
 		413471E02336A7A60041E7C8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413471DF2336A7A60041E7C8 /* MainCoordinator.swift */; };
+		416869CB233BFE0C001F73F8 /* UIview+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416869CA233BFE0C001F73F8 /* UIview+CollectionViewExtension.swift */; };
 		4180AF502335B36400904BFD /* UIView+RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180AF4F2335B36400904BFD /* UIView+RandomColor.swift */; };
 		41F2E9FA233945230002E9A6 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2E9F8233945220002E9A6 /* Brush.swift */; };
 		41F2E9FB233945230002E9A6 /* SwiftyDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2E9F9233945230002E9A6 /* SwiftyDraw.swift */; };
@@ -27,7 +28,7 @@
 		41FB7FE823355E080002C963 /* FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FE723355E080002C963 /* FetchedResultsController.swift */; };
 		41FB7FEB23355E720002C963 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FEA23355E720002C963 /* DataSource.swift */; };
 		41FB7FEE23355EAA0002C963 /* EntityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB7FED23355EAA0002C963 /* EntityCell.swift */; };
-		41FE06B323371D2600E6A863 /* EntityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE06B223371D2600E6A863 /* EntityDetailViewController.swift */; };
+		41FE06B323371D2600E6A863 /* EntityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE06B223371D2600E6A863 /* EntityPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		413471DB2336A6190041E7C8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		413471DD2336A6650041E7C8 /* StoryboardBoundable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBoundable.swift; sourceTree = "<group>"; };
 		413471DF2336A7A60041E7C8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		416869CA233BFE0C001F73F8 /* UIview+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4180AF4F2335B36400904BFD /* UIView+RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RandomColor.swift"; sourceTree = "<group>"; };
 		41F2E9F8233945220002E9A6 /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
 		41F2E9F9233945230002E9A6 /* SwiftyDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyDraw.swift; sourceTree = "<group>"; };
@@ -53,7 +55,7 @@
 		41FB7FE723355E080002C963 /* FetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsController.swift; sourceTree = "<group>"; };
 		41FB7FEA23355E720002C963 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		41FB7FED23355EAA0002C963 /* EntityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCell.swift; sourceTree = "<group>"; };
-		41FE06B223371D2600E6A863 /* EntityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailViewController.swift; sourceTree = "<group>"; };
+		41FE06B223371D2600E6A863 /* EntityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				4180AF4F2335B36400904BFD /* UIView+RandomColor.swift */,
 				413471D623369BFD0041E7C8 /* DateExtension.swift */,
 				413471D82336A45A0041E7C8 /* UIviewController+AlertExtension.swift */,
+				416869CA233BFE0C001F73F8 /* UIview+CollectionViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				41FB7FCB23355BA90002C963 /* ViewController.swift */,
-				41FE06B223371D2600E6A863 /* EntityDetailViewController.swift */,
+				41FE06B223371D2600E6A863 /* EntityPageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,9 +261,10 @@
 				4180AF502335B36400904BFD /* UIView+RandomColor.swift in Sources */,
 				413471D92336A45A0041E7C8 /* UIviewController+AlertExtension.swift in Sources */,
 				413471DC2336A6190041E7C8 /* Coordinator.swift in Sources */,
+				416869CB233BFE0C001F73F8 /* UIview+CollectionViewExtension.swift in Sources */,
 				41F2E9FB233945230002E9A6 /* SwiftyDraw.swift in Sources */,
 				413471DE2336A6650041E7C8 /* StoryboardBoundable.swift in Sources */,
-				41FE06B323371D2600E6A863 /* EntityDetailViewController.swift in Sources */,
+				41FE06B323371D2600E6A863 /* EntityPageViewController.swift in Sources */,
 				41FB7FE223355C690002C963 /* Entity+CoreDataProperties.swift in Sources */,
 				41FB7FDE23355C130002C963 /* DataModel.xcdatamodeld in Sources */,
 				41FB7FCC23355BA90002C963 /* ViewController.swift in Sources */,

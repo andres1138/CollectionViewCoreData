@@ -68,7 +68,7 @@ class EntityDetailViewController: UIViewController, StoryboardBoundable, EntityD
             saveNewEntry()
         }
         
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true    )
     }
 }
 
@@ -126,7 +126,7 @@ extension EntityDetailViewController: UITextFieldDelegate  {
            
            guard let title = titleTextField.text, !title.isEmpty  else {
                displayAlert(title: "Huh", message: "You realize that there is no title or actual content yet you are trying to save!")
-               print("Tried to save without a title and summary")
+               print("Tried to save without a title ")
                return
            }
            
@@ -134,6 +134,7 @@ extension EntityDetailViewController: UITextFieldDelegate  {
                let entity = NSEntityDescription.insertNewObject(forEntityName: "Entity", into: managedObjectContext!) as! Entity
               bindManagedAttributesToUIElements(entity: entity, title: title,  image: drawnImageView.image, date: Date())
                managedObjectContext?.saveContext()
+            
            } else {
                print("Managed Object Context is nil")
            }
